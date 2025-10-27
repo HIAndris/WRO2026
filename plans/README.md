@@ -20,9 +20,9 @@
 - javítás
 
 
-## Útvonaltervezés:
+## Dependenciák:
 
-0. - **Bevásárlás**
+0. - **[Bevásárlás](bevasarlas.md)**
 
 
 1. - **Modellezés**
