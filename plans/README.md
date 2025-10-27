@@ -25,13 +25,13 @@
 0. - **[Bevásárlás](bevasarlas.md)**
 
 
-1. - **Modellezés**
-   - **Perifériák**
-   - **Pálya**
+1. - **[Modellezés](modellezes.md)**
+   - **[Perifériák](preiferiak.md)**
+   - **[Pálya](palya.md)**
 
 
-2. - **Összerakás**
-   - **Szoftver**
+2. - **[Összerakás](osszerakas.md)**
+   - **[Szoftver](szoftver.md)**
 
 
-3. - **Tesztelés-javítás**
+3. - **[Tesztelés-javítás](teszt.md)**
