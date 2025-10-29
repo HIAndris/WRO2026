@@ -1,0 +1,13 @@
+# Target labels
+ bootloader
+# Source files and their labels
+A:/workspace/projects/WRO2026/.pio/build/esp32-s3-devkitc-1/CMakeFiles/bootloader
+A:/workspace/projects/WRO2026/.pio/build/esp32-s3-devkitc-1/CMakeFiles/bootloader.rule
+A:/workspace/projects/WRO2026/.pio/build/esp32-s3-devkitc-1/CMakeFiles/bootloader-complete.rule
+A:/workspace/projects/WRO2026/.pio/build/esp32-s3-devkitc-1/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+A:/workspace/projects/WRO2026/.pio/build/esp32-s3-devkitc-1/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+A:/workspace/projects/WRO2026/.pio/build/esp32-s3-devkitc-1/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+A:/workspace/projects/WRO2026/.pio/build/esp32-s3-devkitc-1/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+A:/workspace/projects/WRO2026/.pio/build/esp32-s3-devkitc-1/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+A:/workspace/projects/WRO2026/.pio/build/esp32-s3-devkitc-1/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+A:/workspace/projects/WRO2026/.pio/build/esp32-s3-devkitc-1/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule

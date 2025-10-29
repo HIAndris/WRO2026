@@ -1,0 +1,2 @@
+source A:/workspace/projects/WRO2026/.pio/build/esp32-s3-devkitc-1/gdbinit/symbols
+source A:/workspace/projects/WRO2026/.pio/build/esp32-s3-devkitc-1/gdbinit/connect
