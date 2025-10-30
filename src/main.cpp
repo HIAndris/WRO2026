@@ -24,14 +24,15 @@ typedef enum {
     BLUE = 0x000040,
     YELLOW = 0x404000,
     CYAN = 0x004040,
-    MAGENTA = 0x400040
+    MAGENTA = 0x40004,
+    BRIGHT_WHITE = 0xffffff,
+    DULL_WHITE = 0x101010
 } led_color_t;
 
 rmt_item32_t bit0;
 rmt_item32_t bit1;
 
 static void led_init() {
-
     rmt_config_t config = {};
     config.rmt_mode = RMT_MODE_TX;
     config.channel = RMT_TX_CHANNEL;
@@ -46,8 +47,6 @@ static void led_init() {
     rmt_config(&config);
     rmt_driver_install(config.channel, 0, 0);
 
-
-
     bit0.level0 = 1;
     bit0.duration0 = T0H_NS / CLK_TICK_NS;
     bit0.level1 = 0;
@@ -57,11 +56,7 @@ static void led_init() {
     bit1.duration0 = T1H_NS / CLK_TICK_NS;
     bit1.level1 = 0;
     bit1.duration1 = T1L_NS / CLK_TICK_NS;
-
 }
-
-
-
 
 void write(uint8_t * data, int length) {
     rmt_item32_t items[24 * LED_NUM];
@@ -89,31 +84,51 @@ void set_color(led_color_t color) {
     write(grb, 3);
 }
 
+void rainbow(uint8_t brightness, uint32_t delay_ticks) {
+    uint8_t grb[3] = {0x00, brightness, 0x00};
+    uint8_t vi[4] = {1, 0, 2, 1};
+    for (uint8_t i = 0; i < 3; i++) {
+        for (uint8_t j = 0; j < brightness; ++j) {
+            grb[vi[i+1]]++;
+            write(grb, 3);
+            ESP_LOGI(TAG, "%u %u %u", grb[1], grb[0], grb[2]);
+            vTaskDelay(delay_ticks);
+        }
+        for (uint8_t j = 0; j < brightness; ++j) {
+            grb[vi[i]]--;
+            write(grb, 3);
+            ESP_LOGI(TAG, "%u %u %u", grb[1], grb[0], grb[2]);
+            vTaskDelay(delay_ticks);
+        }
+    }
+}
 
 extern "C" [[noreturn]] void app_main(void) {
-
     led_init();
-
     while (true) {
-
+        rainbow(50, 2);
+    }
+    /*
+    while (true) {
         for (int i = 0; i < 3; i++) {
-            set_color(WHITE);
+            set_color(DULL_WHITE);
             vTaskDelay(pdMS_TO_TICKS(500));
             set_color(BLACK);
             vTaskDelay(pdMS_TO_TICKS(500));
         }
         for (int i = 0; i < 3; i++) {
-            set_color(MAGENTA);
+            set_color(WHITE);
             vTaskDelay(pdMS_TO_TICKS(1000));
             set_color(BLACK);
             vTaskDelay(pdMS_TO_TICKS(500));
         }
         for (int i = 0; i < 3; i++) {
-            set_color(YELLOW);
+            set_color(BRIGHT_WHITE);
             vTaskDelay(pdMS_TO_TICKS(500));
             set_color(BLACK);
             vTaskDelay(pdMS_TO_TICKS(500));
         }
         vTaskDelay(pdMS_TO_TICKS(2000));
     }
+    */
 }
