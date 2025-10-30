@@ -91,13 +91,11 @@ void rainbow(uint8_t brightness, uint32_t delay_ticks) {
         for (uint8_t j = 0; j < brightness; ++j) {
             grb[vi[i+1]]++;
             write(grb, 3);
-            ESP_LOGI(TAG, "%u %u %u", grb[1], grb[0], grb[2]);
             vTaskDelay(delay_ticks);
         }
         for (uint8_t j = 0; j < brightness; ++j) {
             grb[vi[i]]--;
             write(grb, 3);
-            ESP_LOGI(TAG, "%u %u %u", grb[1], grb[0], grb[2]);
             vTaskDelay(delay_ticks);
         }
     }
