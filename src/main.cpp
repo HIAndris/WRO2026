@@ -58,7 +58,7 @@ static void led_init() {
     bit1.duration1 = T1L_NS / CLK_TICK_NS;
 }
 
-void write(uint8_t * data, int length) {
+void write(const uint8_t * data, const int length) {
     rmt_item32_t items[24 * LED_NUM];
     int idx = 0;
 
@@ -73,8 +73,8 @@ void write(uint8_t * data, int length) {
     rmt_wait_tx_done(RMT_TX_CHANNEL, portMAX_DELAY);
 }
 
-void set_color(led_color_t color) {
-    uint32_t temp = (uint32_t)color;
+void set_color(const led_color_t color) {
+    const auto temp = static_cast<uint32_t>(color);
     uint8_t grb[3] = {
         static_cast<uint8_t>((temp >> 8) & 0xff),
         static_cast<uint8_t>((temp >> 16) & 0xff),
