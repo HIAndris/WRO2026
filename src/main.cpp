@@ -1,14 +1,15 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "esp_log.h"
-#include "driver/rmt.h"
 
 #include "led.hpp"
 
-#define TAG "ESP32S3"
+static auto TAG = "ESP32_S3";
 
-extern "C" [[noreturn]] void app_main(void) {
+extern "C" void app_main(void) {
     const LED::Led led;
+
+    ESP_LOGI(TAG, "Hello");
 
     for (uint8_t i = 0; i < 3; i++) {
         led.rainbow(50, 2);

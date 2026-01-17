@@ -8,8 +8,9 @@ namespace LED {
     class Led {
         public:
         Led();
-        void set_color(const LED::COLOR color) const;
+        void set_color(COLOR color) const;
         void rainbow(uint8_t brightness, uint32_t delay_ticks) const;
+
         private:
         rmt_item32_t bit0;
         rmt_item32_t bit1;
